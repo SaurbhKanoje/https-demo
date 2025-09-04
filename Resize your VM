@@ -1,0 +1,19 @@
+Every DevOps engineer would have come across this nightmare.
+
+Don’t panic — here’s a simple 3-step fix.
+Step 1 – Expand the Volume in AWS Console
+Go to EC2 → Volumes → Modify Volume → Add more size → Save
+
+The game is not over yet…
+
+Step 2 – Check Your Instance Disk
+SSH into your instance and run:
+devops@ubuntu:~$ lsblk # list the block devices
+
+Step 3 – Grow & Resize the Root Volume
+Make sure cloud utils are installed:
+devops@ubuntu:~$ sudo apt-get install cloud-guest-utils -y
+
+Then grow and resize ( / ):
+devops@ubuntu:~$ sudo growpart /dev/xvda 1
+devops@ubuntu:~$ sudo resize2fs /dev/xvda

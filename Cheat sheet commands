@@ -1,5 +1,5 @@
 DEMO-5: Docker CLI Cheat Sheet
-To start running the commands pull any image from hub.docker.com and run it as a contaienr
+########To start running the commands pull any image from hub.docker.com and run it as a contaienr
 docker search <image name> -- to search the docker images from command line
 docker pull <image name> -- to pull a docker image from docker hub
 docker images -- to display the images on your local machine
@@ -7,25 +7,25 @@ docker history < image name > -- to know the changes done to the image
 docker inspect < image name > -- to view the detaied information in JSON output
 docker rmi <image name> -- to remove a image from local machine
 docker image prune -- to remove all unused images from local machine
-how to run containers from a docker image
+
+#####how to run containers from a docker image
 two ways we can run the images
 interative mode ( -it )
 detached mode ( -d )
-docker run -d nginx ( always creates new container & detaches from the terminal you
-are working on ( goes in background process ))
+docker run -d nginx ( always creates new container & detaches from the terminal you are working on ( goes in background process ))
 docker run -it nginx bash ( always creates new container & gets inside the container )
 docker ps -- to check all running containers
 docker ps -a -- to check all running + exited/stopped containers
 docker stop <container id> -- to stop a container
 docker start <container id> -- to start a stopped container
 docker restart <container id> -- to restart a container
-docker inspect <container id> -- to view detailed information about the continaer in
-JSON format
+docker inspect <container id> -- to view detailed information about the continaer in JSON format
 docker rm <container id> -- to remove a stopped/exited container
-docker rm -f <container id> -- to remove a container forcefully though it is in
-running state
+docker rm -f <container id> -- to remove a container forcefully though it is in running state
 docker container prune -- to remove all stopped/exited containers
-how to get inside a running container
+
+######how to get inside a running container
 docker run -d nginx ( creates a new container in detached mode )
 docker ps -- displays the running containers, note down the container id
 docker exec -it <container id> bash 
+

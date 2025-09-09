@@ -8,6 +8,17 @@ docker inspect < image name > -- to view the detaied information in JSON output
 docker rmi <image name> -- to remove a image from local machine
 docker image prune -- to remove all unused images from local machine
 
+####################################################3
+how to move into a container
+--- docker run -it imagename  -----   ex - docker run -it ubuntu
+
+how to gracefully exit the conatiner 
+--- ctrl+p+q
+
+
+
+
+
 #####how to run containers from a docker image
 two ways we can run the images
 interative mode ( -it )

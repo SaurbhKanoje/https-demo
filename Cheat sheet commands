@@ -1,3 +1,20 @@
+######how to get inside a running container
+docker run -d nginx ( creates a new container in detached mode )
+docker ps -- displays the running containers, note down the container id
+docker ps -a 
+docker exec -it <container id> bash 
+
+####################################################3
+how to move into a container
+--- docker run -it imagename  -----   ex - docker run -it ubuntu
+
+how to gracefully exit the conatiner 
+--- ctrl+p+q
+
+Name and rename a conatiner 
+docker run -itd --name nameyouwant imagename  --- ex -- docker run -itd --name saurabh nginx
+docker rename oldname newname  ---- ex -- docker rename saurabh shubham
+
 DEMO-5: Docker CLI Cheat Sheet
 ########To start running the commands pull any image from hub.docker.com and run it as a contaienr
 docker search <image name> -- to search the docker images from command line
@@ -7,16 +24,6 @@ docker history < image name > -- to know the changes done to the image
 docker inspect < image name > -- to view the detaied information in JSON output
 docker rmi <image name> -- to remove a image from local machine
 docker image prune -- to remove all unused images from local machine
-
-####################################################3
-how to move into a container
---- docker run -it imagename  -----   ex - docker run -it ubuntu
-
-how to gracefully exit the conatiner 
---- ctrl+p+q
-
-
-
 
 
 #####how to run containers from a docker image
@@ -34,9 +41,40 @@ docker inspect <container id> -- to view detailed information about the continae
 docker rm <container id> -- to remove a stopped/exited container
 docker rm -f <container id> -- to remove a container forcefully though it is in running state
 docker container prune -- to remove all stopped/exited containers
+docker rm -f $(docker ps -a) to remove all conatiner irrespective of anything 
+docker stats --- details of the docker CPU and memory 
+docker run -itd --name saurabh p 81:80 --restart always --memory 500M nginx
+docker run -itd --name saurabh p 81:80 --restart always --cpu=".5"nginx
 
-######how to get inside a running container
-docker run -d nginx ( creates a new container in detached mode )
-docker ps -- displays the running containers, note down the container id
-docker exec -it <container id> bash 
+
+
+docker port mapping #######
+docker run -itd --name saurabh -p portyouwant:defaultport imagename 
+
+ex: 
+docker run -itd --name saurabh -p 81:80 nginx
+
+docker port forwarding *************************
+docker run -itd --name saurabh -P ginx  ---- this will randomly assign port to the conatiner (32768 to 65535) default port ranfer for docker
+it can randomly assign anything 
+
+jump inside a running container ##############
+docker exec -it name shellyouneedtouse
+ex -- docker exec -it saurabh Bash
+
+
+
+RESTART POLICY 
+No
+always 
+unless stop 
+on failure
+
+
+
+
+
+
+
+
 

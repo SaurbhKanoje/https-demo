@@ -1,0 +1,51 @@
+🐳 What is a Dockerfile?
+
+A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble a Docker image.
+
+Each line in the Dockerfile is a directive (instruction) that tells Docker what to do.
+
+📜 Common Dockerfile Directives with Examples
+
+FROM	---- Sets the base image	            ------    FROM ubuntu:20.04
+ENV	       Sets environment variables                 ENV APP_VERSION=1.0
+RUN	       Executes a command during build	          RUN apt-get update && apt-get install -y nginx
+CMD	       Provides default command to run the        CMD ["node", "server.js"]
+           container	
+EXPOSE	   Informs Docker that the container          EXPOSE 8080
+           listens on a port	
+WORKDIR	   Sets the working directory for             WORKDIR /app
+           other commands	
+COPY	     Copies files from host to image	          COPY . /app
+ADD	       Like COPY, but can also extract archives   ADD https://example.com/file.tar.gz /tmp/
+           and fetch URLs
+ENTRYPOINT Configures a container that runs           ENTRYPOINT ["python3", "-m", "http.server"]
+           as an executable	
+VOLUME	   Creates a mount point for external volumes VOLUME /data
+USER	     Sets the user to run the container	        USER appuser
+LABEL	-----Adds metadata to the image	                LABEL maintainer="you@example.com"
+ARG	       Defines a variable during build time     	ARG APP_ENV=production
+
+
+EXAMPLE-----
+
+# Base image
+FROM node:18-alpine
+
+# Metadata
+LABEL maintainer="dev@example.com"
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy app source
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Default command
+CMD ["npm", "start"]

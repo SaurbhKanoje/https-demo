@@ -70,8 +70,36 @@ always
 unless stop 
 on failure
 
+------------------------------------------
+docker compose 
+docker compose -f filename up -d ---- to bring up or run the container 
+docker compose -f filename down  ---- to bring down the container 
 
+scaling up instance it could not be a case that we just want to run 1 image or machine at a time we need to scale up the service in one go so we 
+docker compose command only example 
+***** you have a compose yml file which has **** 
 
+[root@docker devopstrainer1]# cat compose.yml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "80"
+    volumes:
+      - /home/dockerlabs/dockerfiles/:/var/www/html
+  app:
+    image: tomcat
+    ports:
+      - "8080"
+  db:
+    image: redis
+    ports:
+      - "9080"
+
+**************************
+compose command with scale up
+docker-compose -f compose.yml up --scale web=2 --scale app=3 --scale db=4  -d
 
 
 

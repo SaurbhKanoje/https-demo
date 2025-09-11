@@ -1,0 +1,35 @@
+How Kubernetes Works from Start to Finish
+techopsexamples.com
+
+You set up a Kubernetes cluster - it consists of a control plane and worker nodes.
+
+You define your application using YAML files - typically with Deployment, Service, ConfigMap, etc.
+
+You apply the YAML using kubectl apply -f, the request goes to the API Server, the central control point.
+
+Kubernetes checks the request to decide what to do:
+a. Create a new object like a Pod or Deployment?
+b. Update or delete an existing object?
+c. Trigger a controller to take action? etc.,
+
+The API server stores the object's spec in etcd, the cluster's database.
+
+The appropriate controller sees the new spec - like a ReplicaSet controller watching for new Deployments.
+
+The controller creates the necessary resources - for example, telling the scheduler to place new Pods.
+
+The scheduler picks a suitable node for each Pod - based on resource availability and scheduling rules.
+
+The Pod spec is sent to the node's Kubelet - it requests the container runtime to start the container.
+
+The container runtime pulls the image, creates the container, and runs it inside the Pod.
+
+The CNI plugin assigns a network identity - the Pod gets an IP address and joins the cluster network.
+
+kube-proxy sets up routing rules - allowing Services to forward traffic to healthy Pods.
+
+The Kubelet reports Pod status back to the API server - used to track readiness and health.
+
+If a Pod crashes or is deleted, the controller notices and recreates it - keeping the system in sync.
+
+This entire loop keeps running - Kubernetes constantly watches and reconciles to match the desired state.

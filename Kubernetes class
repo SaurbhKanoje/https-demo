@@ -37,4 +37,7 @@ Overlay
 Callico 
 CNI ---- Container Network Interface
 
+Kubeproxy call's it to the overlay network/CLI and the it goes to PODS 
+
+API service --> kube-proxy ---> Overlay/CNI ---> Conatiner/PODS 
 

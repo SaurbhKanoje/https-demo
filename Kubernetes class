@@ -1,0 +1,33 @@
+Kubernetes installation 
+
+bootstrap is creating or initilising it 
+class 
+Kubectl is used to manage the setup while Kubeadm is user to create the whole setup/cluster ----- Interview question can kubectl be used to bootstrap and create a cluster --- 
+kubeadm is k8 administation 
+
+Kubectl full form --- K8s control 
+same question can be asked as what is K8 -- command line tool used to interact and manage the show 
+
+
+COmmands ----- 
+kubectl run pod-name --image=imagename ------------------------------ to "run" the pod 
+ex - kubetcl run ngnix-demo
+
+Kubectl get pods or kubectl get pods -o ---------------------------- to "get" the details of any pods
+
+kubectl describe pods nhinx-demo ----------------------------------- will give the detailed information "describe" the item
+
+kubectl delete pod pod-name ----------------------------------------will delete the details 
+ex -  kubectl delete pod nginx-demo 
+
+kubectl create deployment deplouname --image=imagename ------------will crearte the deployment 
+ex ---kubectl create deployment depl-demo --image=nginx
+
+kubeclt expose deloyment deplyment_name --port:80 --target-port=80 --------------expose command 
+ex -kubeclt expose deloyment depl-demo --port:80 --target-port=80
+
+kubectl edit -f [filename]/[resounrce]   ----------------------------------to edit 
+ex- kubectl edit -f deployment deplo-demo   
+
+kubectl apply -f filename ----------------------------------------------to apply 
+

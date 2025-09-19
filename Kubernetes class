@@ -31,3 +31,10 @@ ex- kubectl edit -f deployment deplo-demo
 
 kubectl apply -f filename ----------------------------------------------to apply 
 
+
+NETWORKING CONCEPTS 
+Overlay 
+Callico 
+CNI ---- Container Network Interface
+
+

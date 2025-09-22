@@ -4,6 +4,9 @@ bootstrap is creating or initilising it
 class 
 Kubectl is used to manage the setup while Kubeadm is user to create the whole setup/cluster ----- Interview question can kubectl be used to bootstrap and create a cluster --- 
 kubeadm is k8 administation 
++ dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
 
 Kubectl full form --- K8s control 
 same question can be asked as what is K8 -- command line tool used to interact and manage the show 

@@ -2,3 +2,8 @@ so overlay network will give us the final IP address or callico give us the fina
 just confused with the term because we conatiner as well K8 
 so i got confused with one point when you said multiple ip address with get assinged to a conatiner (that means ip from overlay which is conatiner and for K8 pod calic0) 
 but finally we use K8 clusters itself for acceesing so then what will overlay do for us 
+
+
+
+filtering can be done saying thay do not consider this 
+node so how we explocity pass such things 
